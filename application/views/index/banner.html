@@ -3,16 +3,19 @@
     <div class="banner-right">
         <div class="top">
             <ul>
-                <li>2017年08月08日 星期日</li>
+                <li><script language="JavaScript" type="text/JavaScript">getsysdate()</script>
+                </li>
                 <li>|</li>
-                <li>收藏本站</li>
+                <li><a href="javascript:bookmark()"><span style="text-decoration: none">收藏本站</span></a></li>
                 <li>|</li>
-                <li>设为首页</li>
+                <li><a href="javascript:void(0)" target=_self onClick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href)">
+                    <span style="text-decoration: none">设为首页</span></a>
+                </li>
             </ul>
         </div>
         <div class="middle">
-            <div class="qq"><img src="<?php echo base_url() ?>assets/images/qq.gif"></div>
+            <div class="qq"><a id="kfqq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $sysinfo[0]['qq'] ?>&site=qq&menu=yes"><img border="0" src="<?php echo base_url() ?>assets/images/qq.gif" alt="点击这里与我交流" title="点击这里与我交流" /></a></div>
         </div>
-        <div class="bottom">业务咨询热线：17074646930</div>
+        <div class="bottom">业务咨询热线：<?php echo $sysinfo[0]['servphone']?></div>
     </div>
 </div>

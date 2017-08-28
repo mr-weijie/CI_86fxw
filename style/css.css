@@ -23,7 +23,10 @@ div{ margin: 0 auto;}
 .flash{width: 998px;height: 260px;margin-top: 3px;}
 
 .gonggao{width: 998px;height: 35px;background-color: #ededed;padding-top: 5px;}
-.gonggao .maquee{width: 998px;height: 30px;line-height: 30px; background-color: #ffffff;}
+.gonggao .maquee{width: 998px;height: 30px;line-height: 30px; }
+.gonggao .maquee span{margin-bottom: 0px; float: left;margin-left: 10px;}
+.position_nav{font-weight: bold;}
+.position_nav a {color: #990000;}
 
 .con-block{width: 998px;height: 192px;background-color: #ededed;clear: both; padding: 0px;}
 .con-block .left{ width: 320px;height: 192px; background:url(../assets/images/con_bg.gif);  float: left; margin-right: 19px}
