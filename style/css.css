@@ -61,8 +61,21 @@ div{ margin: 0 auto;}
 .about{width: 996px;height: auto;border: 1px solid; border-color:#666666; float: left}
 .nav-left{width: 220px;height: auto;float: left; border-right: 1px solid; border-right-color: #666666}
 .about-con{width: 760px;height: auto;float: right; margin-top: 2px;padding-top: 5px;}
-.proudct_nav{width: 220px;height: auto;float: left;}
+.proudct_nav{width: 220px;height: auto;float: left; background-color: #f3f8f8}
 .nav_title{width: 220px;height: 23px; background:url(../assets/images/nav_title_bg.gif); float: left;}
 .nav_con{ width:220px;height:auto ;text-align: center;clear: both; padding-top: 5px;}
 .content{margin-top: 10px;}
 .content h1{font-size: 14px;}
+
+.about-con ul{padding-left: 10px;margin-top: 0px;}
+.news-rec{width: 720px;height: 35px;background-color: #f0f0f0; float: left;}
+.news-title{width: 620px;height: 35px;line-height: 35px; float: left;text-align: left}
+.news-date{width: 100px;height: 35px;line-height: 35px; float: left; text-align: center}
+.news-con{width: 720px;height: auto;float: left}
+.news-total{width: 350px;height: 35px;line-height: 35px;float: left;}
+.news-pages{width: 370px;height: 35px;line-height: 35px;float: left;text-align: right}
+
+.proudct_rec{ width: 720px;height: 190px;text-align: center; border: 1px dashed ;border-color: #dddddd;margin-top: 5px;}
+.proudct_rec h1{font-size: 14px;}
+.proudct_pic{width: 230px;height: 160px;float: left;margin-top: 20px;}
+.proudct_profile{width: 490px;height: 190px;float: left;}
