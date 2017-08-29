@@ -38,3 +38,7 @@ function  getsysdate() {
     if(mysec<10)mysec="0"+mysec
     document.write(year+"年"+mymonth+"月"+myday+"日 "+weekday+"<br />");
 }
+function fontZoom(size)
+{
+    document.getElementById('con').style.fontSize=size+'px';
+}
