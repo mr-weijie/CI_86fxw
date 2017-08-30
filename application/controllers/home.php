@@ -5,16 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 * 为了使用身份验证，改为继承自定义的安全检测控制类MY_Controller
 */
 class Home extends MY_Controller {
+    public function __construct()
+    {
+        //构造函数
+        parent::__construct();
+        //parent::__construct();//必须先继承父构造函数，这样能继承基类
+        $this->load->model('database_model','database');
+    }
 
 public function index(){
-    $this->load->model('database_model','database');
     $data['index_con']=$this->database->getindex_con();
     $data['position']='<a href="/">首页</a>';
     $this->loadproc('index_con.html',$data);
 }
 
 public function about(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('about');
     $data['position']='<a href="/">首页</a>->关于我们 ';
     $this->loadproc('about.html',$data);
@@ -40,7 +45,6 @@ public function news(){
     $offset=$this->uri->segment( $config['uri_segment']);
     // p($offset);
     $this->db->limit($perpage, $offset);
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getnewslist();
     $data['position']='<a href="/">首页</a>->业界原创 ';
     $data['links']=$links;
@@ -55,7 +59,6 @@ public function news(){
 }
 public function shownews(){
     $rowid=$this->uri->segment(3);
-    $this->load->model('database_model','database');
     $data['news']=$this->database->getnews($rowid);
     $data['position']='<a href="/">首页</a>-><a href="'.site_url('home/news').'">业界原创</a>  ';
   //  p($data);
@@ -63,14 +66,12 @@ public function shownews(){
 
 }
 public function products(){
-    $this->load->model('database_model','database');
     $data['products']=$this->database->getproducts();
     $data['position']='<a href="/">首页</a>->产品展示';
    // p($data);
     $this->loadproc('products.html',$data);
 }
 public function product(){
-    $this->load->model('database_model','database');
     $rowid=$this->uri->segment(3);
     $data['info']=$this->database->getproduct($rowid);
     $data['position']='<a href="/">首页</a>-><a href="'.site_url('home/products').'">产品展示</a> ';
@@ -80,7 +81,6 @@ public function product(){
 
 
 public function customized(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('customized');
     $data['position']='<a href="/">首页</a>->服务定制';
     // p($data);
@@ -89,21 +89,18 @@ public function customized(){
 }
 
 public function agent(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('agent');
     $data['position']='<a href="/">首页</a>->代理招商';
     $this->loadproc('about.html',$data);
 
 }
 public function success(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('success');
     $data['position']='<a href="/">首页</a>->成功案例';
     $this->loadproc('about.html',$data);
 
 }
 public function price(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('price');
     $data['position']='<a href="/">首页</a>->产品价格';
     $this->loadproc('about.html',$data);
@@ -111,20 +108,17 @@ public function price(){
 }
 
 public function useprocess(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('useprocess');
     $data['position']='<a href="/">首页</a>->使用流程';
     $this->loadproc('about.html',$data);
 }
 public function faq(){
-    $this->load->model('database_model','database');
     $data['info']=$this->database->getinfo('faq');
     $data['position']='<a href="/">首页</a>->常见问题';
     $this->loadproc('about.html',$data);
 }
 
 private function loadproc($proc,$data){
-    $this->load->model('database_model','database');
     $sysdata['sysinfo']=$this->database->getsysinfo();
     $sysdata['flash']=$this->database->getflash();
     $sysdata['price_nav']=$this->database->getprice_nav();
