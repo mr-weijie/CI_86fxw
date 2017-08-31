@@ -6,9 +6,9 @@
      $pic_2=base_url('assets/advs/'.$flash['pics'][2]['pic']);
      $pics=$pic_0.'|'.$pic_1.'|'.$pic_2;
 
-     $url_0=base_url($flash['pics'][0]['url']);
-     $url_1=base_url($flash['pics'][1]['url']);
-     $url_2=base_url($flash['pics'][2]['url']);
+     $url_0=site_url($flash['pics'][0]['url']);
+     $url_1=site_url($flash['pics'][1]['url']);
+     $url_2=site_url($flash['pics'][2]['url']);
      $urls=$url_0.'|'.$url_1.'|'.$url_2;
      $width=isset($flash['window'][0]['width']) ?$flash['window'][0]['width']:998;
      $height=isset($flash['window'][0]['height']) ?$flash['window'][0]['height']:260;

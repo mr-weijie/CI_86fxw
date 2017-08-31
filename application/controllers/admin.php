@@ -25,8 +25,42 @@ class Admin extends MY_Controller{
     }
     public function flash(){
         $data['flash']=$this->database->getflash();
-        $this->load->view('admin/flash.html',$data);
+        $data['title']='Flash动画设置';
+        $this->load->view('admin/header.html',$data);
+        $this->load->view('admin/flash.html');
+        $this->load->view('admin/footer.html');
     }
+    public function sysinfo(){
+        $data['sysinfo']=$this->database->getsysinfo();
+        $data['title']='Flash动画设置';
+        $this->load->view('admin/header.html',$data);
+        $this->load->view('admin/sysinfo.html');
+        $this->load->view('admin/footer.html');
+
+    }
+    public function update_sysinfo(){
+        $ID=$this->input->post('ID');
+        $data=array(
+            'address'      =>$this->input->post('address'),
+            'url'          =>$this->input->post('url'),
+            'corporation' =>$this->input->post('corporation'),
+            'phone'        =>$this->input->post('phone'),
+            'qq'            =>$this->input->post('qq'),
+            'worktime'     =>$this->input->post('worktime'),
+            'gonggao'      =>$this->input->post('gonggao')
+        );
+        $status=$this->database->update_sysinfo($data,$ID);
+        if($status)
+        {
+            success('admin/sysinfo','系统参数设置成功！');
+        }else{
+            error('系统参数设置失败！');
+        }
+
+    }
+
+
+
     public function upload(){
         $pid=$this->uri->segment(3);
         if(!isset($pid)){
@@ -54,6 +88,38 @@ class Admin extends MY_Controller{
         }else
         {
             error('请正确选择图片后再上传！');
+        }
+    }
+
+    public function update_flash(){
+        $width=$this->input->post('width');
+        $height=$this->input->post('height');
+        $title=$this->input->post('title');
+        $data=array(
+            'width'=>$width,
+            'height'=>$height,
+            'title'=>$title
+        );
+        $status=$this->database->update_flash($data);
+        if($status)
+        {
+            success('admin/flash','参数设置成功！');
+        }else{
+            error('参数设置失败！');
+        }
+    }
+
+    public function update_flash_link(){
+        $ID =$this->input->post('ID');
+        $data=array(
+            'url'=>$this->input->post('url')
+        );
+        $status=$this->database->update_flash_link($data,$ID);
+        if($status)
+        {
+            success('admin/flash','参数设置成功！');
+        }else{
+            error('参数设置失败！');
         }
 
 

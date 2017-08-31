@@ -54,9 +54,23 @@ class Database_model extends CI_Model{
         $data=$this->db->select('title,pics,content')->where(array('rowid'=>$rowid))->get('products')->result_array();
         return $data;
     }
+
     public function uploadfile($pid,$photofile){
         $data=$this->db->update('flash', array('pic'=>$photofile),array('id'=>$pid));
         return $data;
 
     }
+    public function update_flash($data){
+        $status=$this->db->update('flash',$data,array('id'=>4));
+        return $status;
+    }
+    public function update_sysinfo($data,$ID){
+        $status=$this->db->update('sysinfo',$data,array('ID'=>$ID));
+        return $status;
+    }
+    public function update_flash_link($data,$ID){
+        $status=$this->db->update('flash',$data,array('ID'=>$ID));
+        return $status;
+    }
+
 }
