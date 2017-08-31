@@ -119,6 +119,7 @@ public function faq(){
 }
 
 private function loadproc($proc,$data){
+
     $sysdata['sysinfo']=$this->database->getsysinfo();
     $sysdata['flash']=$this->database->getflash();
     $sysdata['price_nav']=$this->database->getprice_nav();

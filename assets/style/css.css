@@ -4,7 +4,7 @@ p{text-align: left;margin-top: 0px;font-size: 12px; padding: 2px 5px;}
 li{list-style-type: none;float: left}
 div{ margin: 0 auto;}
 .banner{width: 998px;height: 111px;border: 0px solid; background-color: #ededed; }
-.banner-left{width: 372px;height: 111px; background: url(../assets/images/logo.gif);float: left}
+.banner-left{width: 372px;height: 111px; background: url(../images/logo.gif);float: left}
 .banner-right{width: 626px;height: 111px;float: left}
 .banner-right  .top{width: 626px;height: 35px;text-align: right}
 .banner-right .middle{width: 626px;height: 40px;}
@@ -14,11 +14,11 @@ div{ margin: 0 auto;}
 .banner-right .middle .qq{float: right;margin-top: 10px;margin-right: 5px;}
 
 
-.nav {width: 998px;height: 38px; background:url(../assets/images/nav_bg.gif) repeat-x;}
+.nav {width: 998px;height: 38px; background:url(../images/nav_bg.gif) repeat-x;}
 .nav ul{ height: 38px;margin-top: 0px}
 .nav ul li{list-style-type: none;float: left;}
 .nav ul li a{color: #ffffff; padding: 11px 18px;font-size: 14px;width: 100px; height: 38px;line-height: 38px; }
-.nav ul li a:hover{ background:url(../assets/images/nav_hover_bg.gif) repeat-x;height: 38px;line-height: 38px}
+.nav ul li a:hover{ background:url(../images/nav_hover_bg.gif) repeat-x;height: 38px;line-height: 38px}
 
 .flash{width: 998px;height: 260px;margin-top: 3px;}
 
@@ -29,19 +29,19 @@ div{ margin: 0 auto;}
 .position_nav a {color: #990000;}
 
 .con-block{width: 998px;height: 192px;background-color: #ededed;clear: both; padding: 0px;}
-.con-block .left{ width: 320px;height: 192px; background:url(../assets/images/con_bg.gif);  float: left; margin-right: 19px}
-.con-block .middle{ width: 320px;height: 192px; background:url(../assets/images/con_bg.gif);  float:left; margin-right: 19px}
-.con-block .right{ width: 320px;height: 192px; background:url(../assets/images/con_bg.gif); float: left;}
+.con-block .left{ width: 320px;height: 192px; background:url(../images/con_bg.gif);  float: left; margin-right: 19px}
+.con-block .middle{ width: 320px;height: 192px; background:url(../images/con_bg.gif);  float:left; margin-right: 19px}
+.con-block .right{ width: 320px;height: 192px; background:url(../images/con_bg.gif); float: left;}
 .up{width: 320px;height: 30px;}
 .down{width: 320px;height: 162px;}
 .down-left{width: 126px;height: 162px;float: left}
-.p01{ background:url(../assets/images/001.png) no-repeat center  ; }
-.p02{ background:url(../assets/images/002.png) no-repeat center  ; }
-.p03{ background:url(../assets/images/003.png) no-repeat center  ; }
+.p01{ background:url(../images/001.png) no-repeat center  ; }
+.p02{ background:url(../images/002.png) no-repeat center  ; }
+.p03{ background:url(../images/003.png) no-repeat center  ; }
 
-.p04{ background:url(../assets/images/004.png) no-repeat center  ; }
-.p05{ background:url(../assets/images/005.png) no-repeat center  ; }
-.p06{ background:url(../assets/images/006.png) no-repeat center  ; }
+.p04{ background:url(../images/004.png) no-repeat center  ; }
+.p05{ background:url(../images/005.png) no-repeat center  ; }
+.p06{ background:url(../images/006.png) no-repeat center  ; }
 
 .con-block ul{height: 30px; margin-top: 0px;}
 .con-block ul li{ height: 30px;line-height: 30px;}
@@ -59,7 +59,7 @@ div{ margin: 0 auto;}
 .footer-address .add{height: 30px;line-height: 30px; text-align: center;}
 .footer-count{height: 40px;line-height: 40px;margin-top: 10px; text-align: center}
 
-.position_nav{width: 998px;height: 38px;line-height: 38px;background:url(../assets/images/position_nav_bg.gif) repeat-x; }
+.position_nav{width: 998px;height: 38px;line-height: 38px;background:url(../images/position_nav_bg.gif) repeat-x; }
 .about-side{width: 998px;height: auto; margin-top: 2px; }
 .about{width: 996px;height: auto;border: 1px solid; border-color:#666666; float: left}
 .nav-left{width: 220px;height: auto;float: left; border-right: 1px solid; border-right-color: #666666}
@@ -68,7 +68,7 @@ div{ margin: 0 auto;}
 .proudct_nav .content{text-align: left;}
 
 
-.nav_title{width: 220px;height: 23px; background:url(../assets/images/nav_title_bg.gif); float: left;}
+.nav_title{width: 220px;height: 23px; background:url(../images/nav_title_bg.gif); float: left;}
 .nav_con{ width:220px;height:auto ;text-align: center;clear: both; padding-top: 5px;}
 .content{margin-top: 10px;}
 .content_top h1{font-size: 14px;}

@@ -1,10 +1,40 @@
 <div class="flash">
-    <script>
-        document.write("<object classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 codebase=http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0 width='998' height='260'>");
-        document.write("<param name=allowScriptAccess value=sameDomain><param name=quality value=high><param name=bgcolor value=#ffffff>");
-        document.write("<param name=menu value=false><param name=wmode value=opaque>");
-        document.write("<param name=FlashVars value='pics=<?php echo base_url().$flash[0]['pic']?>|<?php echo base_url().$flash[1]['pic']?>|<?php echo base_url().$flash[2]['pic']?>&links=<?php echo base_url().$flash[0]['url']?>|<?php echo base_url().$flash[1]['url']?>|<?php echo base_url().$flash[1]['url']?>&texts=手机房讯王&borderwidth=998&borderheight=260&textheight=0'>");
-        document.write("<embed src=<?php echo base_url()?>assets/images/pix.swf wmode=opaque FlashVars='pics=<?php echo base_url().$flash[0]['pic']?>|<?php echo base_url().$flash[1]['pic']?>|<?php echo base_url().$flash[2]['pic']?>&links=<?php echo base_url().$flash[0]['url']?>|<?php echo base_url().$flash[1]['url']?>|<?php echo base_url().$flash[2]['url']?>&texts=手机房讯王&borderwidth=998&borderheight=260&textheight=0' menu=false bgcolor=#ffffff quality=high width='998' height='260' allowScriptAccess=sameDomain type=application/x-shockwave-flash pluginspage=http://www.macromedia.com/go/getflashplayer>");
-        document.write("</object>");
-    </script>
+
+    <?php
+     $pic_0=base_url('assets/advs/'.$flash['pics'][0]['pic']);
+     $pic_1=base_url('assets/advs/'.$flash['pics'][1]['pic']);
+     $pic_2=base_url('assets/advs/'.$flash['pics'][2]['pic']);
+     $pics=$pic_0.'|'.$pic_1.'|'.$pic_2;
+
+     $url_0=base_url($flash['pics'][0]['url']);
+     $url_1=base_url($flash['pics'][1]['url']);
+     $url_2=base_url($flash['pics'][2]['url']);
+     $urls=$url_0.'|'.$url_1.'|'.$url_2;
+     $width=isset($flash['window'][0]['width']) ?$flash['window'][0]['width']:998;
+     $height=isset($flash['window'][0]['height']) ?$flash['window'][0]['height']:260;
+     $title=isset($flash['window'][0]['title']) ?$flash['window'][0]['title']:'';
+
+
+    ?>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width='<?php echo $width ?>' height='<?php echo $height ?>'>
+        <param name="allowScriptAccess" value="sameDomain">
+        <param name="quality" value="high">
+        <param name="bgcolor" value="#ffffff">
+        <param name="menu" value="false">
+        <param name="wmode" value="opaque">
+        <param name="FlashVars" value="pics=<?php echo $pics?>&links=<?php echo $urls ?>&texts=<?php echo $title ?>&borderwidth=<?php echo $width ?>&borderheight=<?php echo $height ?>&textheight=0">
+        <embed
+                src="<?php echo base_url('assets/images/pix.swf')?>"
+                wmode="opaque"
+                FlashVars="pics=<?php echo $pics?>&links=<?php echo $urls ?>&texts=<?php echo $title ?>&borderwidth=<?php echo $width ?>&borderheight=<?php echo $height ?>&textheight=0"
+                menu="false"
+                bgcolor="#ffffff"
+                quality="high"
+                width="<?php echo $width ?>"
+                height="<?php echo $height ?>"
+                allowScriptAccess="sameDomain"
+                type="application/x-shockwave-flash"
+                pluginspage="http://www.macromedia.com/go/getflashplayer"
+        >
+    </object>
 </div>

@@ -11,7 +11,8 @@ class Database_model extends CI_Model{
        return $data;
     }
     public function getflash(){
-        $data=$this->db->get('flash')->result_array();
+        $data['pics']=$this->db->where(array('rectype'=>'pic'))->get('flash')->result_array();
+        $data['window']=$this->db->where(array('rectype'=>'window'))->get('flash')->result_array();
         return $data;
     }
     public function getprice_nav(){
@@ -52,5 +53,10 @@ class Database_model extends CI_Model{
     public function getproduct($rowid){
         $data=$this->db->select('title,pics,content')->where(array('rowid'=>$rowid))->get('products')->result_array();
         return $data;
+    }
+    public function uploadfile($pid,$photofile){
+        $data=$this->db->update('flash', array('pic'=>$photofile),array('id'=>$pid));
+        return $data;
+
     }
 }

@@ -3,11 +3,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>系统后台管理首页</title>
-	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/' ?>css/admin.css" />
-	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/' ?>js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/' ?>js/admin.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url('assets/style/admin/css/admin.css')?>" />
+	<script type="text/javascript" src="<?php echo base_url('assets/style/admin/js/jquery-1.7.2.min.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/style/admin/js/admin.js') ?>"></script>
 <!-- 默认打开目标 -->
-<!--base target="iframe"/-->
+<base target="iframe">
 </head>
 <body>
 <!-- 头部 -->
@@ -36,11 +36,11 @@
 		<div id="left_box">
 			<p class="use">功能管理</p>
 			<div class="menu_box">
-				<h2>文章管理</h2>
+				<h2>首页管理</h2>
 				<div class="text">
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="<?php echo site_url('admin/article/send_article') ?>" class="pos">发表文章</a>				        	
+				        	<a href="<?php echo site_url('admin/flash') ?>" class="pos">flash动画设置</a>
 				        </li> 
 				    </ul>
 					<ul class="con">
