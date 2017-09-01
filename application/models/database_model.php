@@ -46,12 +46,12 @@ class Database_model extends CI_Model{
         return $data;
     }
     public function getproducts(){
-        $data=$this->db->select('rowid,title,profile,pics')->get('products')->result_array();
+        $data=$this->db->select('rowid,title,profile,pics,modDate')->get('products')->result_array();
         return $data;
 
     }
     public function getproduct($rowid){
-        $data=$this->db->select('title,pics,content')->where(array('rowid'=>$rowid))->get('products')->result_array();
+        $data=$this->db->where(array('rowid'=>$rowid))->get('products')->result_array();
         return $data;
     }
 
@@ -70,6 +70,10 @@ class Database_model extends CI_Model{
     }
     public function update_flash_link($data,$ID){
         $status=$this->db->update('flash',$data,array('ID'=>$ID));
+        return $status;
+    }
+    public function update_product($rowid,$data){
+        $status=$this->db->update('products',$data,array('rowid'=>$rowid));
         return $status;
     }
 
