@@ -76,5 +76,12 @@ class Database_model extends CI_Model{
         $status=$this->db->update('products',$data,array('rowid'=>$rowid));
         return $status;
     }
+    public function updateprocductpic($rowid,$photofile){
+        $data=array(
+            'pics'=>$photofile
+        );
+        $status=$this->db->update('products',$data,array('rowid'=>$rowid));
+        return $status;
 
+    }
 }

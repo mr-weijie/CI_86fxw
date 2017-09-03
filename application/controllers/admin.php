@@ -42,7 +42,7 @@ class Admin extends MY_Controller{
         $this->load->library('pagination');
         $pageNo=$this->uri->segment(3);
         $pageNo=isset($pageNo)?$pageNo:1;
-        $perpage=2;
+        $perpage=10;
         $config['base_url']=site_url('admin/products/');
         $config['total_rows'] = $this->db->count_all_results('products');
         $config['uri_segment']=3;
@@ -84,7 +84,8 @@ class Admin extends MY_Controller{
         $data=array(
             'title'=>$this->input->post('title'),
             'profile'=>$this->input->post('profile'),
-            'content'=>$this->input->post('content')
+            'content'=>$this->input->post('content'),
+            'modDate'=>time()
         );
         $status=$this->database->update_product($rowid,$data);
         if($status)
@@ -142,6 +143,31 @@ class Admin extends MY_Controller{
             if($data)
             {
                 redirect(site_url('admin/flash'));
+            }else{
+                error("对不起！图片上传失败！");
+            }
+        }else
+        {
+            error('请正确选择图片后再上传！');
+        }
+    }
+
+    public function uploadproductpic(){
+        $rowid=$this->input->post("rowid");
+        $config['upload_path']='./assets/images/';
+        $config['allowed_types']='gif|jpg|png|jpeg';
+        $config['overwrite']=true;//遇到同名的覆盖
+        // $config['file_name']=time().mt_rand(1000,9999);
+        $config['file_name']='product_'.$rowid;//图片文件名
+//载入上传类
+        $this->load->library('upload',$config);
+        $status=$this->upload->do_upload('upfile');//此处的参数必须与表单中的文件字段名字相同
+        if($status){
+            $photofile=$this->upload->data('file_name');//返回已保存的文件名
+            $data=$this->database->updateprocductpic($rowid,$photofile);
+            if($data)
+            {
+                redirect(site_url('admin/editproduct/'.$rowid));
             }else{
                 error("对不起！图片上传失败！");
             }

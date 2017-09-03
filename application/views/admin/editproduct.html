@@ -18,8 +18,17 @@
 <body>
 <div class="flash_side">
     <div class="con">
-        <form name="form1" method="post" action="<?php echo site_url('admin/updateproduct')?>">
             <ul>
+                <li>
+                    <form enctype="multipart/form-data" method="post" name="upform" action="<?php echo site_url('admin/uploadproductpic')?>">
+                        产品LOGO图片:<input name="upfile" type="file" size="1" style="font-size:10px"><input type="hidden" name="rowid" value="<?php echo $product[0]['rowid']?>"><input type="submit" value="上传" style="font-size:14px">
+                    </form>
+                </li>
+            </ul>
+
+          <form name="form1" method="post" action="<?php echo site_url('admin/updateproduct')?>">
+           <ul>
+                <li style=" width: 720px; text-align: center"><img src="<?php echo base_url('assets/images/'.$product[0]['pics'])?>"></li>
                 <li>产品名称:<input type="text" class="admin_input_normal" name="title" value="<?php echo $product[0]['title']?>"></li>
                 <li><span style="float: left">产品简介:</span><span style="float: left"><textarea name="profile" cols="100" rows="5" style="border: 1px solid;border-color: #4F97E9"><?php echo $product[0]['profile']?></textarea></span></li>
                 <li><span style="float: left; clear: both">产品详情:</span><span style="float: left"><textarea name="content" id="content" style="width: 818px;height: 300px; border: 1px solid;border-color: #3B96CB;"><?php echo $product[0]['content']?></textarea></span></li>
