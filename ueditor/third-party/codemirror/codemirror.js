@@ -838,7 +838,7 @@ var CodeMirror = (function() {
             // Position the mover div to align with the lines it's supposed
             // to be showing (which will cover the visible display)
             var different = from != showingFrom || to != showingTo || lastSizeC != scroller.clientHeight + th;
-            // This is just a bogus formula that detects when the editor is
+            // This is just a bogus formula that detects when the ueditor is
             // resized or the font size changes.
             if (different) lastSizeC = scroller.clientHeight + th;
             showingFrom = from; showingTo = to;

@@ -20,7 +20,7 @@ public function index(){
 }
 
 public function about(){
-    $data['info']=$this->database->getinfo('about');
+    $data['info']=$this->database->getcontentinfo('about','关于我们');
     $data['position']='<a href="/">首页</a>->关于我们 ';
     $this->loadproc('about.html',$data);
 
@@ -81,7 +81,7 @@ public function product(){
 
 
 public function customized(){
-    $data['info']=$this->database->getinfo('customized');
+    $data['info']=$this->database->getcontentinfo('index_con','服务定制');
     $data['position']='<a href="/">首页</a>->服务定制';
     // p($data);
     $this->loadproc('about.html',$data);
@@ -89,31 +89,31 @@ public function customized(){
 }
 
 public function agent(){
-    $data['info']=$this->database->getinfo('agent');
+    $data['info']=$this->database->getcontentinfo('index_con','代理招商');
     $data['position']='<a href="/">首页</a>->代理招商';
     $this->loadproc('about.html',$data);
 
 }
 public function success(){
-    $data['info']=$this->database->getinfo('success');
+    $data['info']=$this->database->getcontentinfo('index_con','成功案例');
     $data['position']='<a href="/">首页</a>->成功案例';
     $this->loadproc('about.html',$data);
 
 }
 public function price(){
-    $data['info']=$this->database->getinfo('price');
+    $data['info']=$this->database->getcontentinfo('index_con','产品价格');
     $data['position']='<a href="/">首页</a>->产品价格';
     $this->loadproc('about.html',$data);
 
 }
 
 public function useprocess(){
-    $data['info']=$this->database->getinfo('useprocess');
+    $data['info']=$this->database->getcontentinfo('useprocess','使用流程');
     $data['position']='<a href="/">首页</a>->使用流程';
     $this->loadproc('about.html',$data);
 }
 public function faq(){
-    $data['info']=$this->database->getinfo('faq');
+    $data['info']=$this->database->getcontentinfo('index_con','常见问题');
     $data['position']='<a href="/">首页</a>->常见问题';
     $this->loadproc('about.html',$data);
 }

@@ -84,7 +84,7 @@ class Admin extends MY_Controller{
         $data=array(
             'title'=>$this->input->post('title'),
             'profile'=>$this->input->post('profile'),
-            'content'=>$this->input->post('content'),
+            'content'=>$_POST['content'],//此处不能采用CI自带的输入模块，否则有些style属性被自动替换成xss=removed
             'modDate'=>time()
         );
         $status=$this->database->update_product($rowid,$data);
@@ -116,6 +116,22 @@ class Admin extends MY_Controller{
             success('admin/sysinfo','系统参数设置成功！');
         }else{
             error('系统参数设置失败！');
+        }
+    }
+    public function updatecontent(){
+        $rowid=$this->input->post('rowid');
+        $url=$this->input->post('url');
+        $data=array(
+            'profile'      =>$this->input->post('profile'),
+            'content'=>$_POST['content'],//此处不能采用CI自带的输入模块，否则有些style属性被自动替换成xss=removed
+            'modDate'=>time()
+        );
+        $status=$this->database->update_content($rowid,$data);
+        if($status)
+        {
+            success($url,'系统模块内容设置成功！');
+        }else{
+            error('系统模块内容设置失败！');
         }
 
     }
@@ -207,7 +223,52 @@ class Admin extends MY_Controller{
         }else{
             error('参数设置失败！');
         }
-
-
     }
+
+    public function customized(){
+        $data['contentinfo']=$this->database->getcontentinfo('index_con','服务定制');
+        $data['url']='admin/customized';
+        $data['title']='服务定制';
+        $this->load->view('admin/content.html',$data);
+    }
+    public function agent(){
+        $data['contentinfo']=$this->database->getcontentinfo('index_con','代理招商');
+        $data['url']='admin/agent';
+        $data['title']='代理招商';
+        $this->load->view('admin/content.html',$data);
+    }
+    public function success(){
+        $data['contentinfo']=$this->database->getcontentinfo('index_con','成功案例');
+        $data['url']='admin/success';
+        $data['title']='成功案例';
+        $this->load->view('admin/content.html',$data);
+    }
+
+    public function price(){
+        $data['contentinfo']=$this->database->getcontentinfo('index_con','产品价格');
+        $data['url']='admin/price';
+        $data['title']='产品价格';
+        $this->load->view('admin/content.html',$data);
+    }
+    public function faq(){
+        $data['contentinfo']=$this->database->getcontentinfo('index_con','常见问题');
+        $data['url']='admin/faq';
+        $data['title']='常见问题';
+        $this->load->view('admin/content.html',$data);
+    }
+
+    public function about(){
+        $data['contentinfo']=$this->database->getcontentinfo('about','关于我们');
+        $data['url']='admin/about';
+        $data['title']='关于我们';
+        $this->load->view('admin/about.html',$data);
+    }
+    public function useprocess(){
+        $data['contentinfo']=$this->database->getcontentinfo('useprocess','使用流程');
+        $data['url']='admin/useprocess';
+        $data['title']='使用流程';
+        $this->load->view('admin/about.html',$data);
+    }
+
+
 }
