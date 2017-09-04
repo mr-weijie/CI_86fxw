@@ -270,5 +270,62 @@ class Admin extends MY_Controller{
         $this->load->view('admin/about.html',$data);
     }
 
+    public function news(){
+        $this->load->library('pagination');
+        $pageNo=$this->uri->segment(3);
+        $pageNo=isset($pageNo)?$pageNo:1;
+        $perpage=10;
+        $config['base_url']=site_url('admin/news/');
+        $config['total_rows'] = $this->db->where(array('rectype'=>'news'))->count_all_results('content');
+        $config['uri_segment']=3;
+        $config['per_page']=$perpage;
+
+        $config['first_link'] = '第一页';
+        $config['prev_link'] = '上一页';
+        $config['next_link'] = '下一页';
+        $config['last_link'] = '最后一页';
+
+        $this->pagination->initialize($config);//初始化
+        $links = $this->pagination->create_links();
+        $offset=$this->uri->segment( $config['uri_segment']);
+        // p($offset);
+        $this->db->limit($perpage, $offset);
+        $data['info']=$this->database->getnewslist();
+        $data['links']=$links;
+        $data['total_rows']= $config['total_rows'];
+        $data['cur_page']=$offset;
+        $pstart=$offset+1;
+        $pstop=$offset+$perpage;
+        $pstop=$pstop>$config['total_rows'] ?$config['total_rows']:$pstop;
+        $data['offset']=$pstart.'-'.$pstop;
+        $this->load->view('admin/header.html',$data);
+        $this->load->view('admin/news.html');
+        $this->load->view('admin/footer.html');
+
+    }
+    public function editnews(){
+        $rowid=$this->uri->segment(3);
+        $data['news']=$this->database->getnews($rowid);
+        $this->load->view('admin/editnews.html',$data);
+        $this->load->view('admin/footer.html');
+
+    }
+    public function updatenews(){
+        $rowid=$this->input->post('rowid');
+        $url=$this->input->post('url');
+        $data=array(
+            'title'      =>$this->input->post('title'),
+            'content'=>$_POST['content'],//此处不能采用CI自带的输入模块，否则有些style属性被自动替换成xss=removed
+            'modDate'=>time()
+        );
+        $status=$this->database->update_content($rowid,$data);
+        if($status)
+        {
+            success($url,'原创内容保存成功！');
+        }else{
+            error('原创内容保存失败！');
+        }
+
+    }
 
 }
