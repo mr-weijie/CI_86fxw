@@ -51,8 +51,8 @@ class Login extends CI_Controller{
             if($captcha!=$_SESSION ['code']){
                 error('验证码错误！');
             }
-            $this->load->model('clientinfo_model','clientinfo');
-            $data=$this->clientinfo->chkuser($usrid,$pwd);
+            $this->load->model('database_model','database');
+            $data=$this->database->chkuser($usrid,$pwd);
             if(!empty($data)){
                 //使用CI框架的session类存储session信息更安全
                 $session_data=array(
@@ -62,7 +62,7 @@ class Login extends CI_Controller{
                 );
                 $this->session->set_userdata($session_data);//写入系统变量中，使用$this->session->userdata('usrid')即可。
                 $msg='登录成功！';
-                $url='/';
+                $url='admin';
                 success($url, $msg);
             }else{
                 error('登录账号或密码错误！');
@@ -72,6 +72,18 @@ class Login extends CI_Controller{
             $this->load->view('login.html');
             $this->load->view('footer.html');
         }
+
+    }
+    public function login_out(){
+        $session_data=array(
+            'usrid'=>null,
+            'usrname'=>null,
+            'logintime'=>null
+        );
+        $this->session->set_userdata($session_data);//写入系统变量中，使用$this->session->userdata('usrid')即可。
+        $msg='退出登录！';
+        $url='admin';
+        success($url, $msg);
 
     }
 }

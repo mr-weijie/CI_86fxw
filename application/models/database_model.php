@@ -92,4 +92,15 @@ class Database_model extends CI_Model{
         return $status;
 
     }
+    public function delete_news($rowid){
+        $status=$this->db->delete('content',array('rowid'=>$rowid));
+        return $status;
+
+    }
+
+    public function chkuser($usrid,$pwd){
+        $pwd=md5($pwd);
+        $data=$this->db->select('usrname,usrid')->where(array('usrid'=>$usrid,'pwd'=>$pwd))->get('admin')->result_array();
+        return $data;
+    }
 }

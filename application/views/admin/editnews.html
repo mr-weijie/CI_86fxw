@@ -13,12 +13,22 @@
             UE.getEditor('content');
         }
     </script>
+    <script>
+        function deletenews() {
+            if(!confirm('确定要删除该条记录吗?')){
+                return false;
+            }
+            var form1=document.getElementById('form1');
+            form1.action="<?php echo site_url('admin/delete_news')?>";
+            form1.submit();
+        }
+    </script>
     <title><?php echo isset($title)?$title:''?></title>
 </head>
 <body>
 <div class="flash_side">
     <div class="con">
-          <form name="form1" method="post" action="<?php echo site_url('admin/updatenews')?>">
+          <form name="form1" id="form1" method="post" action="<?php echo site_url('admin/updatenews')?>">
            <ul>
                 <li>原创标题:<input type="text" class="admin_input_normal" name="title" value="<?php echo $news[0]['title']?>"></li>
                 <li><span style="float: left; clear: both">原创内容:</span><span style="float: left"><textarea name="content" id="content" style="width: 818px;height: 300px; border: 1px solid;border-color: #3B96CB;"><?php echo $news[0]['content']?></textarea></span></li>
@@ -26,7 +36,7 @@
             <div style="width:820px;height: 30px;line-height: 30px;padding-top: 5px;background-color: #3B96CB;margin-left: 65px;clear: both;text-align: center">
                 <input type="hidden" name="rowid" value="<?php echo $news[0]['rowid']?>">
                 <input type="hidden" name="url" value="admin/news">
-                <input type="submit" name="submit" value="提交">
+                <input type="submit" value="提交"><input style="margin-left: 20px" type="button" value="删除" onclick="deletenews()">
             </div>
         </form>
     </div>

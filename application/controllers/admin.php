@@ -327,5 +327,18 @@ class Admin extends MY_Controller{
         }
 
     }
-
+    public function delete_news(){
+        $rowid=$this->input->post('rowid');
+        $url=$this->input->post('url');
+        $status=$this->database->delete_news($rowid);
+        if($status)
+        {
+            success($url,'记录删除成功！');
+        }else{
+            error('记录删除失败！');
+        }
+    }
+    public function welcome(){
+        $this->load->view('admin/welcome.html');
+    }
 }

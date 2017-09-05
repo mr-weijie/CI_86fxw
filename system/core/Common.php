@@ -883,6 +883,7 @@ function success($url, $msg){
  * */
 function print_const(){
     $const=get_defined_constants(true);
+   // p($const);
     p($const['user']);
 
 }
