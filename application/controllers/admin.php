@@ -341,4 +341,32 @@ class Admin extends MY_Controller{
     public function welcome(){
         $this->load->view('admin/welcome.html');
     }
+
+    public function modifypwd(){
+        $this->load->library('form_validation');//加载表单验证类库
+        $this->load->view('admin/modifypwd.html');
+    }
+    public function update_passwd(){
+        $this->load->library('form_validation');//加载表单验证类库
+        $this->form_validation->set_rules('passwd','原始密码','required');//设置验证规则
+        $status = $this->form_validation->run('form1');//执行验证
+
+        if($status){
+            $usrid=$this->session->userdata('usrid');
+            $pwd0=$this->input->post('passwd');
+            $data=$this->database->chkuser($usrid,$pwd0);
+            p($data);
+            if(empty($data)){
+                error('原密码错误，密码修改操作失败');
+            }else{
+
+            }
+        }else{
+            $this->load->view('admin/modifypwd.html');
+
+        }
+
+    }
+
+
 }
