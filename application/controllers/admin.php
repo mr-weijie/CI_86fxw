@@ -349,9 +349,15 @@ class Admin extends MY_Controller{
     public function update_passwd(){
         $this->load->library('form_validation');//加载表单验证类库
         $this->form_validation->set_rules('passwd','原始密码','required');//设置验证规则
-        $status = $this->form_validation->run('form1');//执行验证
+        $this->form_validation->set_rules('passwdF','新密码','required');//设置验证规则
+        $this->form_validation->set_rules('passwdS','确认密码','required');//设置验证规则
+        $status = $this->form_validation->run();//执行验证
 
         if($status){
+            $passwdF = $this->input->post('passwdF');
+            $passwdS = $this->input->post('passwdS');
+            if($passwdF != $passwdS) error('两次密码不相同');
+
             $usrid=$this->session->userdata('usrid');
             $pwd0=$this->input->post('passwd');
             $data=$this->database->chkuser($usrid,$pwd0);
@@ -359,6 +365,19 @@ class Admin extends MY_Controller{
             if(empty($data)){
                 error('原密码错误，密码修改操作失败');
             }else{
+                $pwd=$this->input->post('passwdF');
+                $pwd=md5($pwd);
+                $data=array(
+                    'pwd'=>$pwd
+                );
+                $status=$this->database->update_pwd($usrid,$data);
+                if($status)
+                {
+                    $url='admin';
+                    success($url,'密码修改成功！');
+                }else{
+                    error('密码修改失败！');
+                }
 
             }
         }else{

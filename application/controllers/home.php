@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * 为了使用身份验证，改为继承自定义的安全检测控制类MY_Controller
 */
-class Home extends MY_Controller {
+class Home extends CI_Controller {
     public function __construct()
     {
         //构造函数

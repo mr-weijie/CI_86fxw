@@ -103,4 +103,9 @@ class Database_model extends CI_Model{
         $data=$this->db->select('usrname,usrid')->where(array('usrid'=>$usrid,'pwd'=>$pwd))->get('admin')->result_array();
         return $data;
     }
+    public function update_pwd($usrid,$data){
+        $status=$this->db->update('admin',$data,array('usrid'=>$usrid));
+        p($status);
+        return $status;
+    }
 }
