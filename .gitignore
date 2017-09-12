@@ -19,6 +19,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # IDE Files
 #-------------------------
 /nbproject/
+/ueditor/php/upload/
 .idea/*
 application/session_tmp/*
 ## Sublime Text cache files
