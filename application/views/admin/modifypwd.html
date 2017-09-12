@@ -4,66 +4,30 @@
     <meta charset="UTF-8">
     <title>修改密码</title>
     <style rel="stylesheet">
-        table,th,td {
-            border-collapse:collapse;
-            background:#fff;
+       div{margin: 0 auto;width: 300px;height: 200px;border: 1px solid}
+       li{ list-style: none;height: 30px;line-height: 30px}
+       input{
+           width: 140px;
+           height: 20px;
+           border: 1px solid;
+           border-color: #3B96CB;
+
         }
-        th,td {
-            padding:8px 8px;
-        }
-        .th {
-            white-space:nowrap;
-            text-align:left;
-            font-size:15px;
-            color: #3B96CB;
-            font-weight: 800;
-        }
-        .input_button{
-            width: 61px;
-            height: 28px;
-            background: #3B96CB;
-            font-size: 13px;
-            color:#fff;
-            border: none;
-            font-weight: 600;
-            margin-left: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .input{
-            width: 240px;
-            height: 30px;
-        }
+       .input_button{ width: 50px;height: 25px}
+        .err{color: #ff0000;display: block;}
     </style>
 </head>
 <body>
 <form name="form1" action="<?php echo site_url('admin/update_passwd') ?>" method="POST">
-    <table class="table">
-        <tr>
-            <td class="th" colspan="10">修改密码</td>
-        </tr>
-        <tr>
-            <td>用户</td>
-            <td><?php echo $this->session->userdata('usrname') ?></td>
-        </tr>
-        <tr>
-            <td>原始密码</td>
-            <td><input type="password" name="passwd"/></td><?php echo form_error('passwd', '<span class="err">', '</span>') ?>
-        </tr>
-        <tr>
-            <td>新密码</td>
-            <td><input type="password" name="passwdF"/></td>
-        </tr>
-        <tr>
-            <td>确认密码</td>
-            <td><input type="password" name="passwdS"/></td>
-        </tr>
-        <tr>
-            <td colspan="10">
-                <input type="submit" class="input_button" value="修改" />
-            </td>
-        </tr>
-    </table>
+    <div>
+        <ul>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;用户名:<?php echo $this->session->userdata('usrname') ?></li>
+            <li>原始密码:<input type="password" name="passwd"/></li><?php echo form_error('passwd', '<li class="err">', '</li>') ?>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;新密码:<input type="password" name="passwdF"/></li><?php echo form_error('passwdF', '<li class="err">', '</li>') ?>
+            <li>确认密码:<input type="password" name="passwdS"/></li><?php echo form_error('passwdS', '<li class="err">', '</li>') ?>
+            <li style="text-align: center"><input type="submit" class="input_button" value="修改" /></li>
+        </ul>
+    </div>
 </form>
 </body>
 </html>
